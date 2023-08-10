@@ -37,7 +37,8 @@ export const Checkout = ({ open, setOpen, products }: Props) => {
         image: product.image,
       }))
     });
-    router.push(data.cpPaymentUrl.replace('checkout', 'pos'));
+    const paymentUrl = `https://app.equitywallet.org/checkout/${data._id}`;
+    router.push(paymentUrl);
   };
   useEffect(() => {
     const price = getPrice(products);
