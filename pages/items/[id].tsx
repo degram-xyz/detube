@@ -117,7 +117,7 @@ const Item = () => {
                       prodContext.setProd([
                         ...prodContext.prod,
                         {
-                          id: parseInt(router.query.id as string) - 1,
+                          id: parseInt(router.query.id as string),
                           name: product?.name,
                           image: product.imageSrc,
                           price: product.price,
