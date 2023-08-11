@@ -7,6 +7,6 @@ export default function handler(
   res: NextApiResponse
 ) {
   const { paymentId, ids = [] } = req.body;
-  fs.writeFileSync(`downloads/${paymentId}`, `${ids.join(';')}`, 'utf8');
+  fs.appendFileSync(`downloads/${paymentId}`, `${ids.join(';')}`, 'utf8');
   res.status(200);
 }
