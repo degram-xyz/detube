@@ -1,8 +1,5 @@
 /* eslint-disable react/jsx-key */
 /* eslint-disable @next/next/no-img-element */
-import { Disclosure, Tab } from "@headlessui/react";
-import { StarIcon } from "@heroicons/react/20/solid";
-import { MinusIcon, PlusIcon } from "@heroicons/react/24/outline";
 import { useRouter } from "next/router";
 import {
   JSXElementConstructor,
@@ -13,8 +10,6 @@ import {
   useEffect,
   useState,
 } from "react";
-import { Checkout } from "../../components/checkout";
-import { ProductContext } from "../_app";
 const products = [
   {
     id: 1,
