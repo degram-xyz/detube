@@ -4,7 +4,7 @@ import fs from 'fs';
 
 export default function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>
+  res: NextApiResponse
 ) {
   const { paymentId, ids = [] } = req.body;
   fs.writeFileSync(`downloads/${paymentId}`, `${ids.join(';')}`, 'utf8');
