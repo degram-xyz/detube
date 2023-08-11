@@ -35,7 +35,10 @@ export const Checkout = ({ open, setOpen, products }: Props) => {
         name: product.name,
         amount: product.price,
         image: product.image
-      }))
+      })),
+      customData: {
+        ids: products.map(product => product.id),
+      },
     });
     const paymentUrl = `https://app.equitywallet.org/checkout/${data._id}`;
     router.push(paymentUrl);
