@@ -24,7 +24,7 @@ export default async function handler(
     },
     body,
   });
-  console.log(`${response.status}: ${await response.json()}`);
+  console.log(`${response.status}: ${JSON.stringify(await response.json())}`);
   const items = await getAll();
   res.status(200).json(items);
 }
