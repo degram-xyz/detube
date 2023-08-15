@@ -16,7 +16,7 @@ export default async function handler(
       }
     ]
   });
-  const response = await fetch('https://api.vercel.com/v1/edge-config/ecfg_j2bcrab70dm7klciie740bsuwm5x/items', {
+  const response = await fetch('https://api.vercel.com/v1/edge-config/ecfg_j2bcrab70dm7klciie740bsuwm5x/items?teamId=team_w9RYKh8OIpPW35JwxcUWSK8X', {
     method: 'PATCH',
     headers: {
       'Authorization': `Bearer ${process.env.VERCEL_TOKEN}`,
