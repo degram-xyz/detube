@@ -40,11 +40,11 @@ export const Checkout = ({ open, setOpen, products }: Props) => {
         ids: products.map(product => product.id),
       },
     });
-    localStorage.setItem(data._id, JSON.stringify(products));
-    // const paymentUrl = `https://app.equitywallet.org/checkout/${data._id}`;
-    // router.push(paymentUrl);
+    const paymentUrl = `https://app.equitywallet.org/checkout/${data._id}`;
+    router.push(paymentUrl);
   };
   useEffect(() => {
+    localStorage.setItem('order', JSON.stringify(products));
     const price = getPrice(products);
     setTotal(price);
   }, [products]);
