@@ -13,21 +13,21 @@ const Home: NextPage = () => {
     },
     {
       id: 2,
-      name: "SEO & Digital Marketing",
-      price: 10,
+      name: "Black and White Marketing Template",
       imageSrc:
-        "https://i.ibb.co/3hf8fgH/photo1689679432.jpg",
+        "https://i.ibb.co/w6LMBwC/photo1692103554.jpg",
       imageAlt:
-        "SEO & Digital Marketing",
+        "Black and White Marketing Template",
+      price: 2,
     },
     {
       id: 3,
-      name: "Digital Marketing",
-      price: 10,
+      price: 2,
+      name: "Our Company Template",
       imageSrc:
         "https://i.ibb.co/fqj84wb/photo1689679446.jpg",
       imageAlt:
-        "Digital Marketing",
+        "Our Company Template",
     },
   ];
   const router = useRouter();
@@ -35,9 +35,9 @@ const Home: NextPage = () => {
     <>
       <div className="bg-white">
         <div className="mx-auto max-w-7xl overflow-hidden py-8 px-4 sm:py-24 sm:px-6 lg:px-8">
-        <div className="flex flex-col text-center w-full mb-8">
-      <h1 className="sm:text-3xl text-2xl font-medium title-font text-gray-900">The best slides for the best prices from the best presentaion gurus</h1>
-    </div>
+          <div className="flex flex-col text-center w-full mb-8">
+            <h1 className="sm:text-3xl text-2xl font-medium title-font text-gray-900">The best slides for the best prices from the best presentaion gurus</h1>
+          </div>
           <div className="grid  mx-auto gap-y-10 gap-x-30 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-8">
             {products.map((product) => (
               <div

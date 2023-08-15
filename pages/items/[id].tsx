@@ -28,25 +28,27 @@ const products = [
   },
   {
     id: 2,
-    name: "SEO & Digital Marketing",
-    price: 10,
+    name: "Black and White Marketing Template",
+    price: 2,
     imageSrc:
-      "https://i.ibb.co/3hf8fgH/photo1689679432.jpg",
+      "https://i.ibb.co/w6LMBwC/photo1692103554.jpg",
     imageAlt:
-      "SEO & Digital Marketing",
+      "Black and White Marketing Template",
     orgId: "64b684f3c5129c853cb29c66",
     wallet: "Gpda5Mkjnje2J1WrPjxJDphoKPNrXA33Sf3S2K5WLnna",
+    filename: "Black and White Marketing Template.pptx"
   },
   {
     id: 3,
-    name: "Digital Marketing",
-    price: 10,
+    name: "Our Company Template",
+    price: 2,
     imageSrc:
       "https://i.ibb.co/fqj84wb/photo1689679446.jpg",
     imageAlt:
-      "Digital Marketing",
+      "Our Company Template",
     orgId: "64b684f3c5129c853cb29c66",
     wallet: "Gpda5Mkjnje2J1WrPjxJDphoKPNrXA33Sf3S2K5WLnna",
+    filename: "Our Company Template.pptx"
   },
 ];
 function classNames(...classes: any[]) {
