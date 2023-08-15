@@ -1,6 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { get } from '@vercel/edge-config';
+import { getAll } from '@vercel/edge-config';
 
 export default async function handler(
   req: NextApiRequest,
@@ -20,7 +20,7 @@ export default async function handler(
   //   method: 'POST',
   //   body,
   // });
-  res.status(200).json({
-    foo: await get('foo')
-  });
+  const items = await getAll();
+  console.log(items);
+  res.status(200).end();
 }
