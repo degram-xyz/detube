@@ -41,8 +41,8 @@ export const Checkout = ({ open, setOpen, products }: Props) => {
       },
     });
     localStorage.setItem(data._id, JSON.stringify(products));
-    const paymentUrl = `https://app.equitywallet.org/checkout/${data._id}`;
-    router.push(paymentUrl);
+    // const paymentUrl = `https://app.equitywallet.org/checkout/${data._id}`;
+    // router.push(paymentUrl);
   };
   useEffect(() => {
     const price = getPrice(products);
