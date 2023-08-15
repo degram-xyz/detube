@@ -6,10 +6,10 @@ const Home: NextPage = () => {
   const products = [
     {
       id: 1,
-      price: 10,
-      name: "Digit Pack",
+      price: 2,
+      name: "Startup Pitch Deck Template",
       imageSrc: "https://i.ibb.co/vqcdMj9/photo1689679418.jpg",
-      imageAlt: "Digit Pack",
+      imageAlt: "Startup Pitch Deck Template",
     },
     {
       id: 2,
