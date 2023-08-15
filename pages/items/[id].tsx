@@ -62,6 +62,7 @@ interface Product {
   imageAlt: string;
   wallet: string;
   orgId: string;
+  filename: string;
 }
 
 const Item = () => {
@@ -125,6 +126,7 @@ const Item = () => {
                           quantity: 1,
                           orgId: product?.orgId,
                           wallet: product?.wallet,
+                          filename: product?.filename,
                         },
                       ]);
                       setOpen(true);
