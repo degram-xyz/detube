@@ -89,7 +89,7 @@ const Item = () => {
                     <img
                       src={product?.imageSrc}
                       alt={product?.imageAlt}
-                      className="h-full w-full object-cover object-center sm:rounded-lg"
+                      className="h-full w-full object-contain object-center sm:rounded-lg"
                     />
                   </Tab.Panel>
                 </Tab.Panels>

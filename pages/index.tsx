@@ -51,7 +51,7 @@ const Home: NextPage = () => {
                   <img
                     src={product.imageSrc}
                     alt={product.imageAlt}
-                    className="h-full w-full object-cover object-center"
+                    className="h-full w-full object-contain object-center"
                   />
                 </div>
                 <h3 className="mt-4 font-medium text-gray-900">
