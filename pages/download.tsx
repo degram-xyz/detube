@@ -18,7 +18,7 @@ function classNames(...classes: any[]) {
 
 const Item = () => {
   const router = useRouter();
-  function download(filename) {
+  function download(filename: string) {
     axios({
       url: filename,
       method: 'GET',
