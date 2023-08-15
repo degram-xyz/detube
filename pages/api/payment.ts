@@ -16,6 +16,7 @@ export default async function handler(
       }
     ]
   });
+  console.log(process.env.VERCEL_TOKEN);
   const response = await fetch('https://api.vercel.com/v1/edge-config/ecfg_j2bcrab70dm7klciie740bsuwm5x/items', {
     method: 'PATCH',
     headers: {
