@@ -20,5 +20,5 @@ export default async function handler(
     method: 'POST',
     body,
   });
-  res.status(200);
+  res.status(200).end();
 }
