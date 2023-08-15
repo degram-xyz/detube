@@ -36,7 +36,7 @@ const Item = () => {
   useEffect(() => {
     const products = JSON.parse(localStorage.getItem('order') as string);
     localStorage.removeItem('order');
-    products.forEach(product => {
+    products.forEach((product: any) => {
       download(product.filename);
     });
   }, []);
