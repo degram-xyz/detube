@@ -44,6 +44,7 @@ export const Checkout = ({ open, setOpen, products }: Props) => {
     router.push(paymentUrl);
   };
   useEffect(() => {
+    if (products && products.length > 0)
     localStorage.setItem('order', JSON.stringify(products));
     const price = getPrice(products);
     setTotal(price);
