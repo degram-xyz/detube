@@ -24,7 +24,7 @@ export default async function handler(
     },
     body,
   });
-  console.log(response);
+  console.log(`${response.status}: ${response.body}`);
   const items = await getAll();
   res.status(200).json(items);
 }
