@@ -1,6 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next';
-import edge from '@vercel/edge-config';
+import * as edge from '@vercel/edge-config';
 
 export default async function handler(
   req: NextApiRequest,
