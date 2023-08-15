@@ -1,18 +1,21 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { getAll } from '@vercel/edge-config';
+import { get } from '@vercel/edge-config';
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
   const { paymentId, ids = [] } = req.body;
+  const key = `payment_${paymentId}`;
+  const payment = JSON.parse(await get(key));
+  payment.isPayed = true;
   const body = JSON.stringify({
     "items": [
       {
-        "operation": "create",
-        "key": "foo",
-        "value": "bar"
+        "operation": "update",
+        "key": key,
+        "value": JSON.stringify(payment),
       }
     ]
   });
@@ -25,6 +28,5 @@ export default async function handler(
     body,
   });
   console.log(`${response.status}: ${JSON.stringify(await response.json())}`);
-  const items = await getAll();
-  res.status(200).json(items);
+  res.status(response.status).json(await response.json());
 }
