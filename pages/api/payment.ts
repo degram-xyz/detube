@@ -7,18 +7,20 @@ export default async function handler(
   res: NextApiResponse
 ) {
   const { paymentId, ids = [] } = req.body;
-  const body = JSON.stringify({
-    "items": [
-      {
-        "operation": "update",
-        "key": "foo",
-        "value": "bar"
-      }
-    ]
+  // const body = JSON.stringify({
+  //   "items": [
+  //     {
+  //       "operation": "update",
+  //       "key": "foo",
+  //       "value": "bar"
+  //     }
+  //   ]
+  // });
+  // await fetch('https://api.vercel.com/v1/edge-config/ecfg_j2bcrab70dm7klciie740bsuwm5x/items', {
+  //   method: 'POST',
+  //   body,
+  // });
+  res.status(200).json({
+    foo: await get('foo')
   });
-  await fetch('https://api.vercel.com/v1/edge-config/ecfg_j2bcrab70dm7klciie740bsuwm5x/items', {
-    method: 'POST',
-    body,
-  });
-  res.status(200).end();
 }
