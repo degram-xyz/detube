@@ -18,12 +18,13 @@ import { ProductContext } from "../_app";
 const products = [
   {
     id: 1,
-    price: 10,
+    price: 2,
     orgId: "64b684f3c5129c853cb29c66",
     wallet: "Gpda5Mkjnje2J1WrPjxJDphoKPNrXA33Sf3S2K5WLnna",
-    name: "Digit Pack",
+    name: "Startup Pitch Deck Template",
     imageSrc: "https://i.ibb.co/vqcdMj9/photo1689679418.jpg",
-    imageAlt: "Digit Pack",
+    imageAlt: "Startup Pitch Deck Template",
+    filename: "Template 1 - Startup Pitch Deck.pptx",
   },
   {
     id: 2,
