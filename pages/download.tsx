@@ -43,7 +43,7 @@ const Item = () => {
   }, []);
   return (
     <>
-      <h1>Downloading...</h1>
+      <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900 text-center mt-6">Downloading...</h1>
     </>
   );
 };
