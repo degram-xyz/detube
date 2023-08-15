@@ -47,7 +47,7 @@ const Home: NextPage = () => {
                 key={product.id}
                 className="group text-sm"
               >
-                <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
+                <div className="aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
                   <img
                     src={product.imageSrc}
                     alt={product.imageAlt}
