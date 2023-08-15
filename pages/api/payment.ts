@@ -19,13 +19,12 @@ export default async function handler(
   const response = await fetch('https://api.vercel.com/v1/edge-config/ecfg_j2bcrab70dm7klciie740bsuwm5x/items', {
     method: 'PATCH',
     headers: {
-      'Authorization': process.env.VERCEL_TOKEN as string,
+      'Authorization': `Bearer ${process.env.VERCEL_TOKEN}`,
       'Content-Type': 'application/json'
     },
     body,
   });
   console.log(response);
   const items = await getAll();
-  console.log(items);
-  res.status(200).end();
+  res.status(200).json(items);
 }
