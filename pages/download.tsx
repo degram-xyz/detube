@@ -29,13 +29,12 @@ const Item = () => {
           .createObjectURL(new Blob([response.data]));
         const link = document.createElement('a');
         link.href = url;
-        link.setAttribute('download', 'image.jpg');
         document.body.appendChild(link);
         link.click();
       })
   }
   useEffect(() => {
-    const products = JSON.parse(localStorage.getItem('order'));
+    const products = JSON.parse(localStorage.getItem('order') as string);
     localStorage.removeItem('order');
     products.forEach(product => {
       download(product.filename);
