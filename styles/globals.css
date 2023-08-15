@@ -5,3 +5,7 @@
 .object-contain {
     object-fit: contain;
 }
+
+.object-top {
+    object-position: top;
+}
