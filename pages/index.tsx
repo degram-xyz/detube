@@ -8,7 +8,7 @@ const Home: NextPage = () => {
       id: 1,
       price: 2,
       name: "Startup Pitch Deck Template",
-      imageSrc: "https://i.ibb.co/vqcdMj9/photo1689679418.jpg",
+      imageSrc: "https://i.ibb.co/VBjC16x/photo1691772016.jpg",
       imageAlt: "Startup Pitch Deck Template",
     },
     {

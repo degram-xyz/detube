@@ -22,7 +22,7 @@ const products = [
     orgId: "64b684f3c5129c853cb29c66",
     wallet: "Gpda5Mkjnje2J1WrPjxJDphoKPNrXA33Sf3S2K5WLnna",
     name: "Startup Pitch Deck Template",
-    imageSrc: "https://i.ibb.co/vqcdMj9/photo1689679418.jpg",
+    imageSrc: "https://i.ibb.co/VBjC16x/photo1691772016.jpg",
     imageAlt: "Startup Pitch Deck Template",
     filename: "Template 1 - Startup Pitch Deck.pptx",
   },
