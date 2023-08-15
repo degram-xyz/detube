@@ -25,7 +25,7 @@ const Home: NextPage = () => {
       price: 2,
       name: "Our Company Template",
       imageSrc:
-        "https://i.ibb.co/fqj84wb/photo1689679446.jpg",
+        "https://i.ibb.co/NZ392bq/photo1692103606.jpg",
       imageAlt:
         "Our Company Template",
     },

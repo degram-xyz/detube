@@ -43,7 +43,7 @@ const products = [
     name: "Our Company Template",
     price: 2,
     imageSrc:
-      "https://i.ibb.co/fqj84wb/photo1689679446.jpg",
+      "https://i.ibb.co/NZ392bq/photo1692103606.jpg",
     imageAlt:
       "Our Company Template",
     orgId: "64b684f3c5129c853cb29c66",
