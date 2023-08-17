@@ -15,7 +15,7 @@ const Home: NextPage = () => {
       id: 2,
       name: "Black and White Marketing Template",
       imageSrc:
-        "https://i.ibb.co/w6LMBwC/photo1692103554.jpg",
+        "https://i.ibb.co/LhrHHqQ/photo1692117960.jpg",
       imageAlt:
         "Black and White Marketing Template",
       price: 2,
@@ -25,7 +25,7 @@ const Home: NextPage = () => {
       price: 2,
       name: "Our Company Template",
       imageSrc:
-        "https://i.ibb.co/NZ392bq/photo1692103606.jpg",
+        "https://i.ibb.co/5rCMb74/photo1692117965.jpg",
       imageAlt:
         "Our Company Template",
     },
