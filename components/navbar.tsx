@@ -59,16 +59,6 @@ export default function Navbar() {
                     </button>
                   </div>
                 </div>
-                <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                  <button
-                    onClick={() => {
-                      setOpen(true);
-                    }}
-                    className="w-6 h-6 text-gray-400"
-                  >
-                    <ShoppingCartIcon />
-                  </button>
-                </div>
               </div>
             </div>
           </>
