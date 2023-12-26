@@ -42,7 +42,15 @@ const Item: NextPage<{ products: any[] }> = ({ products }) => {
 
   useEffect(() => {
     const storeSession = (session: any) => {
-      return axios.post('https://phorevr-09ba19e6f8ae.herokuapp.com/apps/sessions', session);
+      const token = localStorage.getItem('token');
+      return axios({
+        url: 'https://phorevr-09ba19e6f8ae.herokuapp.com/apps/sessions',
+        method: 'post',
+        data: session,
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+      });
     };
     
     const product = products.find(({ _id }) => _id === router.query.id);
