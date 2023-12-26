@@ -41,7 +41,7 @@ const Item: NextPage<{ products: any[] }> = ({ products }) => {
   }, [router.query.id]);
 
   useEffect(() => {
-    const storeSession = (session) => {
+    const storeSession = (session: any) => {
       return axios.post('https://phorevr-09ba19e6f8ae.herokuapp.com/apps/sessions', session);
     };
     
