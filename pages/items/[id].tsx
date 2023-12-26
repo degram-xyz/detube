@@ -38,7 +38,7 @@ const Item: NextPage<{ products: any[] }> = ({ products }) => {
               <Tab.Group as="div" className="flex flex-col-reverse">
                 <Tab.Panels className="mb-10">
                   <Tab.Panel>
-                    <object data="{product.link}"></object>
+                    <object data={product.link}></object>
                   </Tab.Panel>
                 </Tab.Panels>
               </Tab.Group>
