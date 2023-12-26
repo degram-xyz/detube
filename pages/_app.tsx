@@ -20,10 +20,13 @@ const theme = extendTheme({
 function MyApp({ Component, pageProps }: AppProps) {
   const [products, setProducts] = useState<any[]>([]);
   const [prod, setProd] = useState<any[]>([]);
-  useEffect(async () => {
-    const { data } = await axios.get('https://equitywallet-b362155a0894.herokuapp.com/orgs/content');
-    setProducts(data);
-  });
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const { data } = await axios.get('https://equitywallet-b362155a0894.herokuapp.com/orgs/content');
+      setProducts(data);
+    };
+    fetchProducts();
+  }, []);
   return (
     <>
       <ChakraProvider theme={theme}>
