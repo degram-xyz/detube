@@ -17,6 +17,14 @@ import type { NextPage } from "next";
 
 const STORAGE_KEY = 'active_session';
 
+function getUTCDate() {
+  const date = new Date();
+  const utc = Date.UTC(date.getUTCFullYear(), date.getUTCMonth(),
+    date.getUTCDate(), date.getUTCHours(),
+    date.getUTCMinutes(), date.getUTCSeconds());
+  return new Date(utc);
+}
+
 function classNames(...classes: any[]) {
   return classes.filter(Boolean).join(" ");
 }
@@ -40,11 +48,12 @@ const Item: NextPage<{ products: any[] }> = ({ products }) => {
     }
     session = {
       wallet: product.wallet,
-      startedAt: new Date().toUTCString(),
+      startedAt: getUTCDate().toISOString(),
     };
     localStorage.setItem(STORAGE_KEY, JSON.stringify(session));
     const exitingFunction = () => {
-      session.stoppedAt = new Date().toUTCString();
+      session.stoppedAt = getUTCDate().toISOString();
+      localStorage.setItem(STORAGE_KEY, '');
     };
 
     router.events.on("routeChangeStart", exitingFunction);
