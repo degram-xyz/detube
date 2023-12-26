@@ -1,9 +1,10 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 import Navbar from "../components/navbar";
 import { ChakraProvider } from '@chakra-ui/react'
 import { extendTheme } from '@chakra-ui/react'
+import axios from 'axios';
 
 export const ProductContext = createContext<any>(null);
 
@@ -17,18 +18,12 @@ const theme = extendTheme({
 
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const products = [
-    {
-      _id: "647f563ca86ed102ac99509f",
-      username: "apvc",
-      name: "ap vc",
-      logo: "/orgs/logo/06779c07-8796-402d-8966-6215fca22baa.jpg",
-      wallet: "7oRuj8919tUbcncq2P2qdstKXdkDngnEDd6dDYYw7P8d",
-      link: "https://fspvvh45uoiwjr3bs6akyw3kff7hj5m2pb452pzzainsxkrbp4sa.arweave.net/LJ9an52jkWTHYZeArFtqKX509Zp4ed0_OQIbK6ohfyQ",
-      description: "Description",
-    },
-  ];
+  const [products, setProducts] = useState<any[]>([]);
   const [prod, setProd] = useState<any[]>([]);
+  useEffect(async () => {
+    const { data } = await axios.get('https://equitywallet-b362155a0894.herokuapp.com/orgs/content');
+    setProducts(data);
+  });
   return (
     <>
       <ChakraProvider theme={theme}>
