@@ -17,7 +17,7 @@ const theme = extendTheme({
 });
 
 
-function MyApp({ Component, pageProps, searchParams }: AppProps) {
+function MyApp({ Component, pageProps }: AppProps) {
   const [products, setProducts] = useState<any[]>([]);
   const [prod, setProd] = useState<any[]>([]);
   useEffect(() => {
@@ -26,11 +26,6 @@ function MyApp({ Component, pageProps, searchParams }: AppProps) {
       setProducts(data);
     };
     fetchProducts();
-  }, []);
-  useEffect(() => {
-    console.log(searchParams);
-    // const token = searchParams.get('t');
-    // localStorage.setItem('token', token);
   }, []);
   return (
     <>
