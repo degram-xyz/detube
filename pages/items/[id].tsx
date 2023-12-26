@@ -74,7 +74,7 @@ const Item = () => {
   const [quantity, setQuantity] = useState<number>(1);
   useEffect(() => {
     if (router.query.id) {
-      setProduct(products[parseInt(router.query.id as string) - 1]);
+      setProduct(products.find(({ _id }) => _id === router.query.id));
     }
   }, [router.query.id]);
   const [open, setOpen] = useState<boolean>(false);
@@ -86,7 +86,7 @@ const Item = () => {
           <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
             <div className="lg:grid lg:grid-cols-1 lg:items-start lg:gap-x-8">
               <Tab.Group as="div" className="flex flex-col-reverse">
-                <Tab.Panels className="aspect-w-1 aspect-h-1 w-full">
+                <Tab.Panels className="mb-10">
                   <Tab.Panel>
                     <img
                       src={product?.imageSrc}
@@ -106,37 +106,10 @@ const Item = () => {
                 </h1>
 
                 <div className="mt-3">
-                  <h2 className="sr-only">Product information</h2>
-                  <p className="text-3xl pb-5 tracking-tight text-gray-900">
-                    $ {product?.price}
-                  </p>
                   <p className="pb-5 tracking-tight text-gray-900">
                     Solana Wallet<br/>
                     {product?.wallet}
                   </p>
-                </div>
-                <div className="sm:flex-col1 mt-10 flex">
-                  <button
-                    onClick={() => {
-                      prodContext.setProd([
-                        ...prodContext.prod,
-                        {
-                          id: parseInt(router.query.id as string),
-                          name: product?.name,
-                          image: product.imageSrc,
-                          price: product.price,
-                          quantity: 1,
-                          orgId: product?.orgId,
-                          wallet: product?.wallet,
-                          filename: product?.filename,
-                        },
-                      ]);
-                      setOpen(true);
-                    }}
-                    className="flex max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full"
-                  >
-                    Add to cart
-                  </button>
                 </div>
               </div>
             </div>
