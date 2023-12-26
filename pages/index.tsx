@@ -9,7 +9,7 @@ const Home: NextPage<any> = (props: any) => {
   const products: any[] = props.products;
   console.log(props);
   useEffect(() => {
-    console.log(searchParams);
+    // console.log(searchParams);
     // const token = searchParams.get('t');
     // localStorage.setItem('token', token);
   }, []);
