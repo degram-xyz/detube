@@ -2,7 +2,7 @@
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
 
-const Home: NextPage = ({ products }: { products: any[] }) => {
+const Home: NextPage<{ products: any[] }> = ({ products }) => {
   const router = useRouter();
   return (
     <>
