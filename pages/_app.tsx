@@ -34,7 +34,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <ChakraProvider theme={theme}>
         <ProductContext.Provider value={{ prod, setProd }}>
           <Navbar />
-          <Component {...pageProps} products />
+          <Component {...pageProps} products={products} />
         </ProductContext.Provider>
       </ChakraProvider>
     </>
