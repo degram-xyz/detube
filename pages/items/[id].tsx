@@ -15,6 +15,8 @@ import {
 } from "react";
 import type { NextPage } from "next";
 
+const STORAGE_KEY = 'active_session';
+
 function classNames(...classes: any[]) {
   return classes.filter(Boolean).join(" ");
 }
@@ -30,8 +32,19 @@ const Item: NextPage<{ products: any[] }> = ({ products }) => {
   }, [router.query.id]);
 
   useEffect(() => {
+    const product = products.find(({ _id }) => _id === router.query.id);
+    let session = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null');
+    if (session) {
+      console.log(session);
+      localStorage.setItem(STORAGE_KEY, '');
+    }
+    session = {
+      wallet: product.wallet,
+      startedAt: new Date().toUTCString(),
+    };
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(session));
     const exitingFunction = () => {
-      console.log("exiting...");
+      session.stoppedAt = new Date().toUTCString();
     };
 
     router.events.on("routeChangeStart", exitingFunction);
