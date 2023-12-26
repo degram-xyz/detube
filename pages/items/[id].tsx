@@ -13,44 +13,8 @@ import {
   useEffect,
   useState,
 } from "react";
-import { Checkout } from "../../components/checkout";
-import { ProductContext } from "../_app";
-const products = [
-  {
-    id: 1,
-    price: 2,
-    orgId: "64b684f3c5129c853cb29c66",
-    wallet: "Gpda5Mkjnje2J1WrPjxJDphoKPNrXA33Sf3S2K5WLnna",
-    name: "Startup Pitch Deck Template",
-    imageSrc: "https://i.ibb.co/VBjC16x/photo1691772016.jpg",
-    imageAlt: "Startup Pitch Deck Template",
-    filename: "Template 1 - Startup Pitch Deck.pptx",
-  },
-  {
-    id: 2,
-    name: "Black and White Marketing Template",
-    price: 2,
-    imageSrc:
-      "https://i.ibb.co/LhrHHqQ/photo1692117960.jpg",
-    imageAlt:
-      "Black and White Marketing Template",
-    orgId: "64b684f3c5129c853cb29c66",
-    wallet: "Gpda5Mkjnje2J1WrPjxJDphoKPNrXA33Sf3S2K5WLnna",
-    filename: "Black and White Marketing Template.pptx"
-  },
-  {
-    id: 3,
-    name: "Our Company Template",
-    price: 2,
-    imageSrc:
-      "https://i.ibb.co/5rCMb74/photo1692117965.jpg",
-    imageAlt:
-      "Our Company Template",
-    orgId: "64b684f3c5129c853cb29c66",
-    wallet: "Gpda5Mkjnje2J1WrPjxJDphoKPNrXA33Sf3S2K5WLnna",
-    filename: "Our Company Template.pptx"
-  },
-];
+import type { NextPage } from "next";
+
 function classNames(...classes: any[]) {
   return classes.filter(Boolean).join(" ");
 }
@@ -64,10 +28,9 @@ interface Product {
   description: string;
 }
 
-const Item = () => {
+const Item: NextPage<{ products: any[] }> = ({ products }) => {
   const router = useRouter();
   const [product, setProduct] = useState<any>(null);
-  const prodContext = useContext(ProductContext);
   const [quantity, setQuantity] = useState<number>(1);
   useEffect(() => {
     if (router.query.id) {
@@ -78,7 +41,6 @@ const Item = () => {
   if (product !== null) {
     return (
       <>
-        <Checkout products={prodContext.prod} open={open} setOpen={setOpen} />
         <div className="bg-white">
           <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
             <div className="lg:grid lg:grid-cols-1 lg:items-start lg:gap-x-8">
