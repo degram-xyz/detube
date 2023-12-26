@@ -55,16 +55,13 @@ function classNames(...classes: any[]) {
   return classes.filter(Boolean).join(" ");
 }
 interface Product {
-  id: number;
+  _id: string;
+  username: string;
   name: string;
-  href: string;
-  price: number;
-  quantity: number;
-  image: string;
-  imageAlt: string;
+  logo: string;
   wallet: string;
-  orgId: string;
-  filename: string;
+  link: string;
+  description: string;
 }
 
 const Item = () => {
@@ -88,11 +85,11 @@ const Item = () => {
               <Tab.Group as="div" className="flex flex-col-reverse">
                 <Tab.Panels className="mb-10">
                   <Tab.Panel>
-                    <img
+                    {/* <img
                       src={product?.imageSrc}
                       alt={product?.imageAlt}
                       className="h-full w-full object-contain object-top sm:rounded-lg"
-                    />
+                    /> */}
                   </Tab.Panel>
                 </Tab.Panels>
               </Tab.Group>
@@ -107,8 +104,7 @@ const Item = () => {
 
                 <div className="mt-3">
                   <p className="pb-5 tracking-tight text-gray-900">
-                    Solana Wallet<br/>
-                    {product?.wallet}
+                    {product?.description}
                   </p>
                 </div>
               </div>
