@@ -28,6 +28,19 @@ const Item: NextPage<{ products: any[] }> = ({ products }) => {
       setProduct(products.find(({ _id }) => _id === router.query.id));
     }
   }, [router.query.id]);
+
+  useEffect(() => {
+    const exitingFunction = () => {
+      console.log("exiting...");
+    };
+
+    router.events.on("routeChangeStart", exitingFunction);
+
+    return () => {
+      console.log("unmounting component...");
+      router.events.off("routeChangeStart", exitingFunction);
+    };
+  }, []);
   const [open, setOpen] = useState<boolean>(false);
   if (product !== null) {
     return (

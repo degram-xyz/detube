@@ -46,7 +46,7 @@ export default function Navbar() {
                     />
                   </div> */}
                   <div className="inline-flex items-center pl-4 pt-1 text-xl font-bold text-gray-900">
-                  DeTube
+                  DeGram
                   </div>
                   <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
                     <button
