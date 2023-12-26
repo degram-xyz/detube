@@ -35,8 +35,8 @@ const Item: NextPage<{ products: any[] }> = ({ products }) => {
         <div className="bg-white">
           <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
             <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
-              <div>
-                <object className="aspect-video" data={product.link}></object>
+              <div className="aspect-w-16 aspect-h-9">
+                <object data={product.link}></object>
               </div>
 
               {/* Product info */}
