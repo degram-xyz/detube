@@ -5,6 +5,7 @@ import Navbar from "../components/navbar";
 import { ChakraProvider } from '@chakra-ui/react'
 import { extendTheme } from '@chakra-ui/react'
 import axios from 'axios';
+import { useSearchParams } from 'next/router';
 
 export const ProductContext = createContext<any>(null);
 
@@ -20,12 +21,17 @@ const theme = extendTheme({
 function MyApp({ Component, pageProps }: AppProps) {
   const [products, setProducts] = useState<any[]>([]);
   const [prod, setProd] = useState<any[]>([]);
+  const searchParams = useSearchParams();
   useEffect(() => {
     const fetchProducts = async () => {
       const { data } = await axios.get('https://equitywallet-b362155a0894.herokuapp.com/orgs/content');
       setProducts(data);
     };
     fetchProducts();
+  }, []);
+  useEffect(() => {
+    const token = searchParams.get('t');
+    localStorage.setItem('token', token);
   }, []);
   return (
     <>
