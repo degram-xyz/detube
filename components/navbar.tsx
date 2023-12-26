@@ -33,20 +33,8 @@ export default function Navbar() {
                   </Disclosure.Button>
                 </div>
                 <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                  <div className="flex flex-shrink-0 items-center">
-                    <img
-                      className="block h-8 w-auto rounded-full lg:hidden"
-                      src="https://i.ibb.co/ZxYfdQ9/photo1689679057.jpg"
-                      alt="Slides Bank"
-                    />
-                    <img
-                      className="hidden h-8 w-auto rounded-full lg:block"
-                      src="https://i.ibb.co/ZxYfdQ9/photo1689679057.jpg"
-                      alt="Slides Bank"
-                    />
-                  </div>
                   <div className="inline-flex items-center pl-4 pt-1 text-xl font-bold text-gray-900">
-                  Slides Bank
+                  DeTube
                   </div>
                   <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
                     <button
