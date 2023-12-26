@@ -18,15 +18,6 @@ import type { NextPage } from "next";
 function classNames(...classes: any[]) {
   return classes.filter(Boolean).join(" ");
 }
-interface Product {
-  _id: string;
-  username: string;
-  name: string;
-  logo: string;
-  wallet: string;
-  link: string;
-  description: string;
-}
 
 const Item: NextPage<{ products: any[] }> = ({ products }) => {
   const router = useRouter();
@@ -47,11 +38,7 @@ const Item: NextPage<{ products: any[] }> = ({ products }) => {
               <Tab.Group as="div" className="flex flex-col-reverse">
                 <Tab.Panels className="mb-10">
                   <Tab.Panel>
-                    {/* <img
-                      src={product?.imageSrc}
-                      alt={product?.imageAlt}
-                      className="h-full w-full object-contain object-top sm:rounded-lg"
-                    /> */}
+                    <object data="{product.link}"></object>
                   </Tab.Panel>
                 </Tab.Panels>
               </Tab.Group>
