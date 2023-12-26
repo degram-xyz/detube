@@ -3,8 +3,11 @@ import type { NextPage } from "next";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 
-const Home: NextPage<any> = ({ products, searchParams }: { products: any[], searchParams: any }) => {
+const Home: NextPage<any> = (props: any) => {
   const router = useRouter();
+  console.log(router);
+  const products: any[] = props.products;
+  console.log(props);
   useEffect(() => {
     console.log(searchParams);
     // const token = searchParams.get('t');
