@@ -1,9 +1,15 @@
 /* eslint-disable @next/next/no-img-element */
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 
-const Home: NextPage<{ products: any[] }> = ({ products }) => {
+const Home: NextPage<any> = ({ products, searchParams }) => {
   const router = useRouter();
+  useEffect(() => {
+    console.log(searchParams);
+    // const token = searchParams.get('t');
+    // localStorage.setItem('token', token);
+  }, []);
   return (
     <>
       <div className="bg-white">
