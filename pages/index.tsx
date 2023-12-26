@@ -5,13 +5,12 @@ import { useEffect } from "react";
 
 const Home: NextPage<any> = (props: any) => {
   const router = useRouter();
-  console.log(router);
   const products: any[] = props.products;
-  console.log(props);
   useEffect(() => {
-    // console.log(searchParams);
-    // const token = searchParams.get('t');
-    // localStorage.setItem('token', token);
+    const token = router.query['t'];
+    if (token) {
+      localStorage.setItem('token', token);
+    }
   }, []);
   return (
     <>
