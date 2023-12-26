@@ -23,7 +23,7 @@ const Home: NextPage = () => {
             {products.map((product) => (
               <div
                 onClick={() => {
-                  router.push(`/items/${product.id}`);
+                  router.push(`/items/${product._id}`);
                 }}
                 key={product.id}
                 className="group text-sm"
