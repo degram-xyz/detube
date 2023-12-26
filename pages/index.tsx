@@ -7,7 +7,7 @@ const Home: NextPage<any> = (props: any) => {
   const router = useRouter();
   const products: any[] = props.products;
   useEffect(() => {
-    const params = (new URL(document.location.search)).searchParams;
+    const params = new URLSearchParams(document.location.search);
     const token = params.get('t');
     if (token) {
       localStorage.setItem('token', token);
