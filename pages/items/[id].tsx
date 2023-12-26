@@ -14,6 +14,7 @@ import {
   useState,
 } from "react";
 import type { NextPage } from "next";
+import axios from 'axios';
 
 const STORAGE_KEY = 'active_session';
 
@@ -40,10 +41,14 @@ const Item: NextPage<{ products: any[] }> = ({ products }) => {
   }, [router.query.id]);
 
   useEffect(() => {
+    const storeSession = (session) => {
+      return axios.post('https://phorevr-09ba19e6f8ae.herokuapp.com/apps/sessions', session);
+    };
+    
     const product = products.find(({ _id }) => _id === router.query.id);
     let session = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null');
     if (session) {
-      console.log(session);
+      storeSession(session);
       localStorage.setItem(STORAGE_KEY, '');
     }
     session = {
@@ -53,6 +58,7 @@ const Item: NextPage<{ products: any[] }> = ({ products }) => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(session));
     const exitingFunction = () => {
       session.stoppedAt = getUTCDate().toISOString();
+      storeSession(session);
       localStorage.setItem(STORAGE_KEY, '');
     };
 
