@@ -85,7 +85,9 @@ const Item: NextPage<{ products: any[] }> = ({ products }) => {
           <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
             <div className="lg:grid lg:grid-cols-5 lg:items-start lg:gap-x-8">
               <div className="aspect-w-16 aspect-h-9 col-span-3">
-                <iframe src={product.link}></iframe>
+                <video autoplay>
+                  <source src={product.link} />
+                </video>
               </div>
 
               {/* Product info */}
