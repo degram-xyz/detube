@@ -15,6 +15,7 @@ import {
 } from "react";
 import type { NextPage } from "next";
 import axios from 'axios';
+import cn from 'classnames';
 
 const STORAGE_KEY = 'active_session';
 
@@ -104,7 +105,7 @@ const Item: NextPage<{ products: any[] }> = ({ products }) => {
       <>
         <div className="bg-white">
           <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-            <div className="lg:grid lg:grid-cols-5 lg:items-start lg:gap-x-8">
+            <div className={cn('lg:grid lg:items-start lg:gap-x-8', { 'lg:grid-cols-5': !isImage, 'lg:grid-cols-1': isImage })}>
               {
                 isImage === null
                   ? <div></div>
@@ -114,7 +115,7 @@ const Item: NextPage<{ products: any[] }> = ({ products }) => {
                         <source src={product.link} />
                       </video>
                     </div>)
-                    : (<div className="w-full">
+                    : (<div className="w-full mb-10">
                       <img src={product.link} />
                     </div>)
               }
