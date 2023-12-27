@@ -30,7 +30,7 @@ const Home: NextPage<any> = (props: any) => {
                   <img
                     src={`https://equitywallet-b362155a0894.herokuapp.com${product.logo}`}
                     alt={product.name}
-                    className="h-full w-full object-contain object-center"
+                    className="h-full w-full object-cover object-center"
                   />
                 </div>
                 <h3 className="mt-4 font-medium text-gray-900">
