@@ -84,7 +84,7 @@ const Item: NextPage<{ products: any[] }> = ({ products }) => {
       img.decoding = "async";
       img.src = url;
       const loaded = new Promise((resolve, reject) => {
-        img.onload = () => resolve();
+        img.onload = () => resolve('loaded');
         img.onerror = () => reject(Error("Image loading error"));
       });
       if (img.decode) {
