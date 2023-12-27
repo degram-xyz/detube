@@ -79,7 +79,7 @@ const Item: NextPage<{ products: any[] }> = ({ products }) => {
     };
   }, []);
   useEffect(() => {
-    const checkImage = async (url) => {
+    const checkImage = async (url: string) => {
       const img = new Image();
       img.decoding = "async";
       img.src = url;
