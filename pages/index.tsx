@@ -26,7 +26,7 @@ const Home: NextPage<any> = (props: any) => {
                 key={product._id}
                 className="group text-sm"
               >
-                <div className="aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
+                <div className="aspect-w-16 aspect-h-9 w-full overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
                   <img
                     src={`https://equitywallet-b362155a0894.herokuapp.com${product.logo}`}
                     alt={product.name}
