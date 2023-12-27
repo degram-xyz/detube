@@ -36,9 +36,30 @@ const Item: NextPage<{ products: any[] }> = ({ products }) => {
   const [quantity, setQuantity] = useState<number>(1);
   const [isImage, setIsImage] = useState<any>(null);
   useEffect(() => {
+    let product: any;
     if (router.query.id) {
-      setProduct(products.find(({ _id }) => _id === router.query.id));
+      product = products.find(({ _id }) => _id === router.query.id);
+      setProduct(product);
     }
+    const checkImage = async (url: string) => {
+      const img = new Image();
+      img.decoding = "async";
+      img.src = url;
+      const loaded = new Promise((resolve, reject) => {
+        img.onload = () => resolve('loaded');
+        img.onerror = () => reject(Error("Image loading error"));
+      });
+      if (img.decode) {
+        await img.decode().catch(() => setIsImage(false));
+      }
+      try {
+        await loaded;
+        setIsImage(true);
+      } catch (e) {
+        setIsImage(false);
+      }
+    };
+    checkImage(product.link);
   }, [router.query.id]);
 
   useEffect(() => {
@@ -77,27 +98,6 @@ const Item: NextPage<{ products: any[] }> = ({ products }) => {
       console.log("unmounting component...");
       router.events.off("routeChangeStart", exitingFunction);
     };
-  }, []);
-  useEffect(() => {
-    const checkImage = async (url: string) => {
-      const img = new Image();
-      img.decoding = "async";
-      img.src = url;
-      const loaded = new Promise((resolve, reject) => {
-        img.onload = () => resolve('loaded');
-        img.onerror = () => reject(Error("Image loading error"));
-      });
-      if (img.decode) {
-        await img.decode().catch(() => setIsImage(false));
-      }
-      try {
-        await loaded;
-        setIsImage(true);
-      } catch (e) {
-        setIsImage(false);
-      }
-    };
-    checkImage(product.link);
   }, []);
   if (product !== null) {
     return (
