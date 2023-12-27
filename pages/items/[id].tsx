@@ -34,6 +34,7 @@ const Item: NextPage<{ products: any[] }> = ({ products }) => {
   const router = useRouter();
   const [product, setProduct] = useState<any>(null);
   const [quantity, setQuantity] = useState<number>(1);
+  const [isImage, setIsImage] = useState<any>(null);
   useEffect(() => {
     if (router.query.id) {
       setProduct(products.find(({ _id }) => _id === router.query.id));
@@ -52,7 +53,7 @@ const Item: NextPage<{ products: any[] }> = ({ products }) => {
         },
       });
     };
-    
+
     const product = products.find(({ _id }) => _id === router.query.id);
     let session = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null');
     if (session) {
@@ -77,18 +78,46 @@ const Item: NextPage<{ products: any[] }> = ({ products }) => {
       router.events.off("routeChangeStart", exitingFunction);
     };
   }, []);
-  const [open, setOpen] = useState<boolean>(false);
+  useEffect(() => {
+    const checkImage = async (url) => {
+      const img = new Image();
+      img.decoding = "async";
+      img.src = url;
+      const loaded = new Promise((resolve, reject) => {
+        img.onload = () => resolve();
+        img.onerror = () => reject(Error("Image loading error"));
+      });
+      if (img.decode) {
+        await img.decode().catch(() => setIsImage(false));
+      }
+      try {
+        await loaded;
+        setIsImage(true);
+      } catch (e) {
+        setIsImage(false);
+      }
+    };
+    checkImage(product.link);
+  }, []);
   if (product !== null) {
     return (
       <>
         <div className="bg-white">
           <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
             <div className="lg:grid lg:grid-cols-5 lg:items-start lg:gap-x-8">
-              <div className="aspect-w-16 aspect-h-9 col-span-3">
-                <video controls>
-                  <source src={product.link} />
-                </video>
-              </div>
+              {
+                isImage === null
+                  ? <div></div>
+                  : !isImage
+                    ? (<div className="aspect-w-16 aspect-h-9 col-span-3">
+                      <video controls>
+                        <source src={product.link} />
+                      </video>
+                    </div>)
+                    : (<div className="w-full">
+                      <img src={product.link} />
+                    </div>)
+              }
 
               {/* Product info */}
               <div className="mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0">
