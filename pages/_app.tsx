@@ -22,7 +22,7 @@ const theme = extendTheme({
 function MyApp({ Component, pageProps }: AppProps) {
   const [products, setProducts] = useState<any[]>([]);
   const [prod, setProd] = useState<any[]>([]);
-  const [address, setAddress] = useState<string>(null);
+  const [address, setAddress] = useState<string>('');
   useEffect(() => {
     const fetchProducts = async () => {
       const { data } = await axios.get('https://equitywallet-b362155a0894.herokuapp.com/orgs/content');
