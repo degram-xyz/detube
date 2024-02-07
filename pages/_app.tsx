@@ -1,5 +1,6 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
+import Script from "next/script";
 import { createContext, useState, useEffect } from "react";
 import Navbar from "../components/navbar";
 import { ChakraProvider } from '@chakra-ui/react'
@@ -33,6 +34,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <ProductContext.Provider value={{ prod, setProd }}>
           <Navbar />
           <Component {...pageProps} products={products} />
+          <Script src="/public/deplan_signup.js" />
         </ProductContext.Provider>
       </ChakraProvider>
     </>
