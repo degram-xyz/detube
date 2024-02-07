@@ -33,7 +33,6 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   useEffect(() => {
     const onMessage = ({ data, origin }: { data: any, origin: any }) => {
-      debugger;
       const message = JSON.parse(data);
       setAddress(message.params[0]);
     };
