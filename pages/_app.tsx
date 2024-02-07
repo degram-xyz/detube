@@ -6,6 +6,7 @@ import Navbar from "../components/navbar";
 import { ChakraProvider } from '@chakra-ui/react'
 import { extendTheme } from '@chakra-ui/react'
 import axios from 'axios';
+import cn from 'classnames';
 
 export const ProductContext = createContext<any>(null);
 
@@ -21,7 +22,7 @@ const theme = extendTheme({
 function MyApp({ Component, pageProps }: AppProps) {
   const [products, setProducts] = useState<any[]>([]);
   const [prod, setProd] = useState<any[]>([]);
-  const [address, setAddress] = userState<string>(null);
+  const [address, setAddress] = useState<string>(null);
   useEffect(() => {
     const fetchProducts = async () => {
       const { data } = await axios.get('https://equitywallet-b362155a0894.herokuapp.com/orgs/content');
@@ -33,7 +34,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <ChakraProvider theme={theme}>
         <ProductContext.Provider value={{ prod, setProd }}>
-          <div style={{filter: "blur(8px)"}}>
+          <div className={cn({ 'blured': true })}>
             <div className="blocker">
               <div id="deplan_signup"></div>
               <Script id="app-name">
