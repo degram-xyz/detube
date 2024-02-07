@@ -52,7 +52,7 @@
     btn.innerHTML = `
     <img class="deplan_signup-logo" src="${logoSrc}" />
     <div class="deplan_signup-text">
-      Use Product with DePlan<br>
+      Use ${window.appName} with DePlan<br>
       <span class="deplan_signup-sub">just for <span class="deplan_signup-price">$0.05 /hr</span></span>
     </div>
   `;

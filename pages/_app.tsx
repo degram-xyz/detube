@@ -34,6 +34,9 @@ function MyApp({ Component, pageProps }: AppProps) {
         <ProductContext.Provider value={{ prod, setProd }}>
           <Navbar />
           <Component {...pageProps} products={products} />
+          <Script>
+            { 'window.appName = "DeGram";' }
+          </Script>
           <Script src="/deplan_signup.js" />
         </ProductContext.Provider>
       </ChakraProvider>
