@@ -63,11 +63,4 @@
       }, url);
     };
     container.append(btn);
-    window.addEventListener('message', ({ data, origin }) => {
-      if (!origin.startsWith(url)) {
-        return;
-      }
-      const message = JSON.parse(data);
-      console.log('message:', message);
-    });
   })();

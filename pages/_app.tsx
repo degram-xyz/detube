@@ -30,18 +30,35 @@ function MyApp({ Component, pageProps }: AppProps) {
     };
     fetchProducts();
   }, []);
+
+  useEffect(() => {
+    const onMessage = ({ data, origin }) => {
+      if (!origin.startsWith(url)) {
+        return;
+      }
+      const message = JSON.parse(data);
+      setAddress(message.params[0]);
+    };
+    window.addEventListener('message', onMessage);
+
+    return () => {
+      window.removeEventListener('message', onMessage);
+    };
+  });
   return (
     <>
       <ChakraProvider theme={theme}>
         <ProductContext.Provider value={{ prod, setProd }}>
-          <div className={cn({ 'blured': true })}>
-            <div className="blocker">
+          {
+            !address && <div className="blocker">
               <div id="deplan_signup"></div>
               <Script id="app-name">
                 {'window.appName = "DeGram";'}
               </Script>
               <Script src="/deplan_signup.js" />
             </div>
+          }
+          <div className={cn({ 'blured': !address })}>
             <Navbar />
             <Component {...pageProps} products={products} />
           </div>
