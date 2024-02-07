@@ -63,43 +63,43 @@ const Item: NextPage<{ products: any[] }> = ({ products }) => {
     checkImage(product.link);
   }, [router.query.id]);
 
-  useEffect(() => {
-    const storeSession = (session: any) => {
-      const token = localStorage.getItem('token');
-      return axios({
-        url: 'https://phorevr-09ba19e6f8ae.herokuapp.com/apps/sessions',
-        method: 'post',
-        data: session,
-        headers: {
-          'Authorization': `Bearer ${token}`,
-        },
-      });
-    };
+  // useEffect(() => {
+  //   const storeSession = (session: any) => {
+  //     const token = localStorage.getItem('token');
+  //     return axios({
+  //       url: 'https://phorevr-09ba19e6f8ae.herokuapp.com/apps/sessions',
+  //       method: 'post',
+  //       data: session,
+  //       headers: {
+  //         'Authorization': `Bearer ${token}`,
+  //       },
+  //     });
+  //   };
 
-    const product = products.find(({ _id }) => _id === router.query.id);
-    let session = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null');
-    if (session) {
-      storeSession(session);
-      localStorage.setItem(STORAGE_KEY, '');
-    }
-    session = {
-      wallet: product.wallet,
-      startedAt: getUTCDate().toISOString(),
-    };
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(session));
-    const exitingFunction = () => {
-      session.stoppedAt = getUTCDate().toISOString();
-      storeSession(session);
-      localStorage.setItem(STORAGE_KEY, '');
-    };
+  //   const product = products.find(({ _id }) => _id === router.query.id);
+  //   let session = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null');
+  //   if (session) {
+  //     storeSession(session);
+  //     localStorage.setItem(STORAGE_KEY, '');
+  //   }
+  //   session = {
+  //     wallet: product.wallet,
+  //     startedAt: getUTCDate().toISOString(),
+  //   };
+  //   localStorage.setItem(STORAGE_KEY, JSON.stringify(session));
+  //   const exitingFunction = () => {
+  //     session.stoppedAt = getUTCDate().toISOString();
+  //     storeSession(session);
+  //     localStorage.setItem(STORAGE_KEY, '');
+  //   };
 
-    router.events.on("routeChangeStart", exitingFunction);
+  //   router.events.on("routeChangeStart", exitingFunction);
 
-    return () => {
-      console.log("unmounting component...");
-      router.events.off("routeChangeStart", exitingFunction);
-    };
-  }, []);
+  //   return () => {
+  //     console.log("unmounting component...");
+  //     router.events.off("routeChangeStart", exitingFunction);
+  //   };
+  // }, []);
   if (product !== null) {
     return (
       <>

@@ -58,7 +58,6 @@ export default function Navbar() {
                       {!router.query.id ? "Home" : "Go Back"}
                     </button>
                   </div>
-                  <div id="deplan_signup"></div>
                 </div>
               </div>
             </div>

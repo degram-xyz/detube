@@ -21,6 +21,7 @@ const theme = extendTheme({
 function MyApp({ Component, pageProps }: AppProps) {
   const [products, setProducts] = useState<any[]>([]);
   const [prod, setProd] = useState<any[]>([]);
+  const [address, setAddress] = userState<string>(null);
   useEffect(() => {
     const fetchProducts = async () => {
       const { data } = await axios.get('https://equitywallet-b362155a0894.herokuapp.com/orgs/content');
@@ -32,12 +33,17 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <ChakraProvider theme={theme}>
         <ProductContext.Provider value={{ prod, setProd }}>
-          <Navbar />
-          <Component {...pageProps} products={products} />
-          <Script id="app-name">
-            { 'window.appName = "DeGram";' }
-          </Script>
-          <Script src="/deplan_signup.js" />
+          <div style={{filter: "blur(8px)"}}>
+            <div className="blocker">
+              <div id="deplan_signup"></div>
+              <Script id="app-name">
+                {'window.appName = "DeGram";'}
+              </Script>
+              <Script src="/deplan_signup.js" />
+            </div>
+            <Navbar />
+            <Component {...pageProps} products={products} />
+          </div>
         </ProductContext.Provider>
       </ChakraProvider>
     </>
