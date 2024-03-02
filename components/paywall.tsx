@@ -1,10 +1,7 @@
-import { useState } from "react";
-
 function Paywall({ onConnect }: { onConnect: Function }) {
-  async function foo() {
-    const res = await (window as any).deplan.connect();
-    const data = JSON.parse(res);
-    onConnect(data.params[0]);
+  async function connect() {
+    const { address } = await (window as any).deplan.connect();
+    onConnect(address);
   }
 
   return (
@@ -24,7 +21,7 @@ function Paywall({ onConnect }: { onConnect: Function }) {
         <h2 style={{ marginBottom: '10px' }}>
           <span className="text-6xl font-bold">$0.05</span> <span className="text-4xl font-semibold">/ hr</span>
         </h2>
-        <button style={{ marginBottom: '10px', width: '260px', padding: '15px 0', backgroundColor: '#000', color: '#fff', borderRadius: '15px', fontWeight: '600', letterSpacing: '3px' }} className="text-lg" onClick={foo}>PAY-AS-YOU-GO</button>
+        <button style={{ marginBottom: '10px', width: '260px', padding: '15px 0', backgroundColor: '#000', color: '#fff', borderRadius: '15px', fontWeight: '600', letterSpacing: '3px' }} className="text-lg" onClick={connect}>PAY-AS-YOU-GO</button>
         <p style={{ color: '#87899B' }}>No commitment. Powered by DePlan</p>
       </div>
     </>

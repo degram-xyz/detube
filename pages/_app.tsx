@@ -31,13 +31,8 @@ function MyApp({ Component, pageProps }: AppProps) {
     };
     fetchProducts();
   }, []);
-
-  useEffect(() => {
-
-  });
   return (
     <>
-      <Script src="/deplan-wallet.js" />
       <ChakraProvider theme={theme}>
         <ProductContext.Provider value={{ prod, setProd }}>
           {
