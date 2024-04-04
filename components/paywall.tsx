@@ -2,7 +2,7 @@ import { DePlanClient } from "deplan-client";
 
 function Paywall({ onConnect }: { onConnect: Function }) {
   async function connect() {
-    const client = new DePlanClient();
+    const client = new DePlanClient('C5bh2cLZYHv7AALrMToSWDA4M4ikNbxhSMYcbnkHwTAA');
     const res = await client.signIn();
     onConnect(res);
   }
