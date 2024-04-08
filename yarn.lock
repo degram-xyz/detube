@@ -1851,10 +1851,10 @@ delayed-stream@~1.0.0:
   resolved "https://registry.npmjs.org/delayed-stream/-/delayed-stream-1.0.0.tgz"
   integrity sha512-ZySD7Nf91aLB0RxL4KGrKHBXl7Eds1DAmEdcoVawXnLD7SDhpNgtuII2aAkg7a7QS41jxPSZ17p4VdGnMHk3MQ==
 
-deplan-client@^1.1.2:
-  version "1.1.2"
-  resolved "https://registry.npmjs.org/deplan-client/-/deplan-client-1.1.2.tgz"
-  integrity sha512-y0PKe7wdd137r02C2ygOV8ulYclnrCAb1t+6OKSP3UbBGTSvHNZvcFaEznCtkQC9xJSeJHbhW5pcsWG0a9xwpg==
+deplan-client@^1.1.6:
+  version "1.1.6"
+  resolved "https://registry.npmjs.org/deplan-client/-/deplan-client-1.1.6.tgz"
+  integrity sha512-e4OYOVYEk/HGwD7Whs5T0CRPHM3nn1zEjNk+vMQ7D6aMPDbfbZWbX+FWejI0CQ371ePC0fX+Q36JcjBjFzIm2Q==
   dependencies:
     "@solana/wallet-standard-features" "^1.2.0"
     "@solana/web3.js" "^1.63.1"
