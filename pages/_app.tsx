@@ -1,6 +1,5 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
-import Script from "next/script";
 import { createContext, useState, useEffect } from "react";
 import Navbar from "../components/navbar";
 import Paywall from "../components/paywall";
@@ -23,7 +22,7 @@ const theme = extendTheme({
 function MyApp({ Component, pageProps }: AppProps) {
   const [products, setProducts] = useState<any[]>([]);
   const [prod, setProd] = useState<any[]>([]);
-  const [address, setAddress] = useState<string | null>(null);
+  const [token, setToken] = useState<string | null>(null);
   useEffect(() => {
     const fetchProducts = async () => {
       const { data } = await axios.get('https://equitywallet-b362155a0894.herokuapp.com/orgs/content');
@@ -31,16 +30,22 @@ function MyApp({ Component, pageProps }: AppProps) {
     };
     fetchProducts();
   }, []);
+
+  async function handleConnect({ signedTransaction }: { signedTransaction: string }) {
+    const { data } = await axios.post('http://localhost:3000/api/signin', { signedTransaction });
+    setToken(data.token);
+  };
+
   return (
     <>
       <ChakraProvider theme={theme}>
         <ProductContext.Provider value={{ prod, setProd }}>
           {
-            !address && <div className="blocker">
-              <Paywall onConnect={(a: string) => setAddress(a)}></Paywall>
+            !token && <div className="blocker">
+              <Paywall onConnect={handleConnect}></Paywall>
             </div>
           }
-          <div className={cn({ 'blured': !address })}>
+          <div className={cn({ 'blured': !token })}>
             <Navbar />
             <Component {...pageProps} products={products} />
           </div>
