@@ -31,8 +31,8 @@ function MyApp({ Component, pageProps }: AppProps) {
     fetchProducts();
   }, []);
 
-  async function handleConnect({ signedTransaction }: { signedTransaction: string }) {
-    const { data } = await axios.post('http://localhost:3000/api/signin', { signedTransaction });
+  async function handleConnect({ message, signature }: { message: string, signature: string }) {
+    const { data } = await axios.post('/api/signin', { message, signature });
     setToken(data.token);
   };
 

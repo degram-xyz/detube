@@ -11,6 +11,6 @@ export default function handler(
     });
   }
   const client = new DePlanClient('6eS5GaEaXooBRNk6sK1yGVE7WRvr41Sv68zY6odk9MTC');
-  client.verifySignIn(req.body.signedTransaction, '7qUPhUmL6nNTWU7yMsWueR778SYbNhBU2B2tqddfns6j');
+  client.verifySignIn(req.body.message, req.body.signature, '7qUPhUmL6nNTWU7yMsWueR778SYbNhBU2B2tqddfns6j');
   res.status(200).json({ token: 'token' });
 }
